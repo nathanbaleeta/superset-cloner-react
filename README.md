@@ -16,7 +16,7 @@ VITE__SUPERSET_ADMIN_USERNAME=superset-admin-username
 VITE__SUPERSET_ADMIN_PASSWORD=superset-admin-password
 ```
 
-Make sure to prefix your environment variable names with VITE_ when working with React
+Make sure to prefix your environment variable names with `VITE_` when working with React
 
 ## Getting Started
 Run the development server: `npm run dev`
