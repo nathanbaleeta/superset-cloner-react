@@ -3,14 +3,14 @@
 
 ## [Bootstapping](https://mui.com/toolpad/core/introduction/tutorial/#bootstrapping)
 ```
-mkdir dashboard-cloner-vite && cd dashboard-cloner-vite
+mkdir superset-cloner-react && cd superset-cloner-react
 npx create-toolpad-app@latest
 ```
 
 ## Getting Started
 ```
-git clone git@github.com:nathanbaleeta/dashboard-cloner-vite.git
-cd dashboard-cloner-vite
+git clone git@github.com:nathanbaleeta/superset-cloner-react.git
+cd superset-cloner-react
 npm install && npm run dev
 ```
 
