@@ -8,7 +8,7 @@ cd superset-cloner-react
 npm install
 ```
 
-For creating environment variables, update the .env.local file with your corresponding OAuth provider credentials
+For creating environment variables, update the `.env.local` file with your corresponding OAuth provider credentials
 
 ```
 REACT_APP_SUPERSET_ENDPOINT=your-superset-endpoint
