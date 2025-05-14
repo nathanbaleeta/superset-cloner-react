@@ -21,15 +21,18 @@ const BRANDING = {
   title: "Dashboard Cloner",
 };
 
+
+// API host credentials & Endpoints
 // https://stackoverflow.com/questions/78114219/property-env-does-not-exist-on-type-importmeta-ts2339
 const SUPERSET_ENDPOINT = import.meta.env.VITE_SUPERSET_ENDPOINT; 
 const SECURITY_LOGIN_ENDPOINT: string = `${SUPERSET_ENDPOINT}/api/v1/security/login`;
 const SECURITY_API_CSRF_ENDPOINT: string = `${SUPERSET_ENDPOINT}/api/v1/security/csrf_token/`;
 
 const SUPERSET_ADMIN_USERNAME = import.meta.env.VITE_SUPERSET_ADMIN_USERNAME;
-const SUPERSET_ADMIN_PASSWORD = import.meta.env.VITE_SUPERSET_ADMIN_PASSWORD
+const SUPERSET_ADMIN_PASSWORD = import.meta.env.VITE_SUPERSET_ADMIN_PASSWORD;
 
-export const AuthContext = React.createContext({ accessToken: "", csrfToken: "" });
+//export const AuthContext = createContext({ accessToken: "", csrfToken: "" });
+export const AuthContext = createContext({ accessToken: "", csrfToken: "" });
 
 const AuthProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(""); 
@@ -97,7 +100,9 @@ export default function App() {
   
   return (
     <ReactRouterAppProvider navigation={NAVIGATION} branding={BRANDING}>
-      <Outlet />
+        <AuthProvider>
+          <Outlet />
+        </AuthProvider>
     </ReactRouterAppProvider>
   );
 }
