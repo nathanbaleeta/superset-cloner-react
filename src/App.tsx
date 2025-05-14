@@ -1,9 +1,16 @@
 import React, { createContext, useState, useEffect } from "react";
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import PersonIcon from '@mui/icons-material/Person';
 import { Outlet } from 'react-router';
 import { ReactRouterAppProvider } from '@toolpad/core/react-router';
 import type { Navigation } from '@toolpad/core/AppProvider';
+
+import CssBaseline from '@mui/material/CssBaseline';
+import { CssVarsProvider as JoyCssVarsProvider } from '@mui/joy/styles';
+import {
+  createTheme,
+  ThemeProvider,
+  THEME_ID as MATERIAL_THEME_ID,
+} from '@mui/material/styles';
 
 
 const NAVIGATION: Navigation = [
@@ -20,7 +27,6 @@ const NAVIGATION: Navigation = [
 const BRANDING = {
   title: "Dashboard Cloner",
 };
-
 
 // API host credentials & Endpoints
 // https://stackoverflow.com/questions/78114219/property-env-does-not-exist-on-type-importmeta-ts2339
@@ -96,13 +102,22 @@ const AuthProvider = ({ children }) => {
   );
 };
 
+// https://mui.com/joy-ui/integrations/material-ui/
+const materialTheme = createTheme();
+
 export default function App() {
   
   return (
-    <ReactRouterAppProvider navigation={NAVIGATION} branding={BRANDING}>
-        <AuthProvider>
-          <Outlet />
+   
+<ReactRouterAppProvider navigation={NAVIGATION} branding={BRANDING}>
+  <ThemeProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
+      <JoyCssVarsProvider>
+        <CssBaseline enableColorScheme />
+          <AuthProvider>
+            <Outlet />
         </AuthProvider>
-    </ReactRouterAppProvider>
+      </JoyCssVarsProvider>
+    </ThemeProvider>
+</ReactRouterAppProvider>
   );
 }

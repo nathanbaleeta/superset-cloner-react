@@ -1,6 +1,23 @@
 import React, { Fragment, useEffect, useState, useContext } from "react";
 import { Link, useNavigate , useLocation} from 'react-router';
-import Typography from '@mui/material/Typography';
+//import Typography from '@mui/material/Typography';
+
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import CircularProgress from '@mui/material/CircularProgress';
+
+import Card from '@mui/joy/Card';
+import CardContent from '@mui/joy/CardContent';
+import Typography from '@mui/joy/Typography';
+import CardOverflow from '@mui/joy/CardOverflow';
+import Divider from '@mui/joy/Divider';
+
+import CircularProgressJoy from '@mui/joy/CircularProgress';
+import SvgIcon from '@mui/joy/SvgIcon';
+
+import CardActions from '@mui/joy/CardActions';
+import Button from '@mui/joy/Button';
+
 import { AuthContext } from "../App"
 
 import JSZip from "jszip";
@@ -201,24 +218,77 @@ useEffect(() => {
   
 
   return (   
-    <Fragment> 
+   <Fragment>
+{isLoading ? <Box sx={{ top: 0,
+                     left: 0,
+                     bottom: 0,
+                     right: 0,
+                     position: 'absolute',
+                     display: 'flex',
+                     alignItems: 'center',
+                     justifyContent: 'center' }}>
+       <CircularProgress color="secondary" size="25px" />
+     </Box> : null}
+
+    <Container maxWidth={false} >
+    <br/>
     
+    <Box
+      sx={{
+        width: '100%',
+        //maxWidth: 700,
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
+        gap: 6,
+      }}
+    >
+      
+      {dashboards?.map(({id, dashboard_title, status, changed_on_delta_humanized, owners}: any)=>
+    <div key={id}>
+      <Card variant="solid" color="primary" invertedColors>
+      <CardContent orientation="horizontal" sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        
+        <CircularProgressJoy size="lg" determinate value={30} >
+          <SvgIcon >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
+              />
+            </svg>
+          </SvgIcon>
+        </CircularProgressJoy>
 
-   <div>
-    {dashboards?.map(({id, dashboard_title, status}: any) => (
-      <div key={id}>
-        <p>
-          Applicant Name: <span>{dashboard_title}</span>
-        </p>
-        <p>
-          Websites built: <span>{status}</span>
-        </p>
-        <p>Applicant location: <span></span>
-        </p>
-      </div>  
+        </CardContent>
+       
+        <CardContent>
+          <Typography level="h4" noWrap>{dashboard_title}</Typography>
+         <Typography level="body-md" sx={{textTransform: 'capitalize'}}>{status}</Typography>
+         
+          <Typography level="body-xs">{changed_on_delta_humanized}</Typography>
+        </CardContent>
+    
+        <CardActions>
+        <Button variant="outlined" size="sm" sx={{ color: '#FFAE42'}}
+          onClick={() => onClickDoSomething(id)}>
+          Visit Details
+        </Button>
+      </CardActions>  
+    </Card>
 
-    ))}
     </div>
-      </Fragment>
+    )}
+    </Box>
+    
+</Container>
+</Fragment>
+ 
   );
 }
