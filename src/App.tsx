@@ -30,7 +30,7 @@ const BRANDING = {
 
 // API host credentials & Endpoints
 // https://stackoverflow.com/questions/78114219/property-env-does-not-exist-on-type-importmeta-ts2339
-const SUPERSET_ENDPOINT = import.meta.env.VITE_SUPERSET_ENDPOINT; 
+const SUPERSET_ENDPOINT: string = import.meta.env.VITE_SUPERSET_ENDPOINT; 
 const SECURITY_LOGIN_ENDPOINT: string = `${SUPERSET_ENDPOINT}/api/v1/security/login`;
 const SECURITY_API_CSRF_ENDPOINT: string = `${SUPERSET_ENDPOINT}/api/v1/security/csrf_token/`;
 
