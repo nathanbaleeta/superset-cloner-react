@@ -11,12 +11,12 @@ npm install
 For creating environment variables, update the `.env.local` file with your corresponding OAuth provider credentials
 
 ```
-REACT_APP_SUPERSET_ENDPOINT=your-superset-endpoint
-REACT_APP_SUPERSET_ADMIN_USERNAME=superset-admin-username
-REACT_APP_SUPERSET_ADMIN_PASSWORD=superset-admin-password
+VITE__SUPERSET_ENDPOINT=your-superset-endpoint
+VITE__SUPERSET_ADMIN_USERNAME=superset-admin-username
+VITE__SUPERSET_ADMIN_PASSWORD=superset-admin-password
 ```
 
-Make sure to prefix your environment variable names with REACT_APP_ when working with React
+Make sure to prefix your environment variable names with VITE_ when working with React
 
 ## Getting Started
 Run the development server: `npm run dev`
