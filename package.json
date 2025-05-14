@@ -12,6 +12,7 @@
     "@mui/material": "^7",
     "@mui/material-nextjs": "^7",
     "@toolpad/core": "0.15.0",
+    "jszip": "^3.10.1",
     "react": "^19",
     "react-dom": "^19",
     "react-router": "^7",
