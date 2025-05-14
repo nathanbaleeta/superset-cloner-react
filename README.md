@@ -9,7 +9,7 @@ npm install
 ```
 
 For creating environment variables, update the `.env.local` file with your corresponding OAuth provider credentials
-For K8s Superset deployments, you can check [here](https://github.com/nathanbaleeta/developer-how-tos/blob/main/k8s/PODS.md#create-privileged-user-on-superset-pod) how to create a privileged user
+For K8s Superset deployments, you can check [here](https://github.com/nathanbaleeta/developer-how-tos/blob/main/k8s/PODS.md#create-privileged-user-on-superset-pod) how to create a privileged or admin user
 
 ```
 VITE__SUPERSET_ENDPOINT=your-superset-endpoint
